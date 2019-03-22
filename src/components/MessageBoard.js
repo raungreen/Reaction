@@ -1,9 +1,11 @@
 import React from 'react';
 import { useAppContext } from './hooks';
+import CreateReaction from './CreateReaction';
+import MessageReactions from './MessageReactions';
 
 function MessageBoard() {
   const {
-    state: { messages }
+    state: { messages, reactionsMap }
   } = useAppContext();
 
   return (
@@ -15,7 +17,9 @@ function MessageBoard() {
           <div key={id}>
             <h4>{new Date(timestamp).toLocaleString()}</h4>
             <p>{text}</p>
-            <h4>-{username}</h4>
+            <h4>- {username}</h4>
+            <CreateReaction messageId={id} />
+            <MessageReactions messageReaction={reactionsMap[id]} />
           </div>
         );
       })}

@@ -14,9 +14,8 @@ function PublishMessage() {
   };
 
   const publishMessage = () => {
-    publish(newMessage(text, username));
+    publish(newMessage({ text, username }));
     setText('');
-    console.log(username, text);
   };
 
   const handleKeyPress = event => {

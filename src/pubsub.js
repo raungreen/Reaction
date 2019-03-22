@@ -12,7 +12,7 @@ function PubSub() {
     pubnub.addListener(listenerConfig);
   };
   this.publish = message => {
-    console.log('publish message', message);
+    // console.log('publish message', message);
 
     pubnub.publish({
       message,
